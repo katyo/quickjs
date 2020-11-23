@@ -1034,6 +1034,11 @@ int JS_SetModuleExport(JSContext *ctx, JSModuleDef *m, const char *export_name,
                        JSValue val);
 int JS_SetModuleExportList(JSContext *ctx, JSModuleDef *m,
                            const JSCFunctionListEntry *tab, int len);
+/* can only be called after the module is initialized */
+JSValueConst JS_GetModuleExport(JSContext *ctx, JSModuleDef *m, char *export_name);
+int JS_CountModuleExport(JSContext *ctx, JSModuleDef *m);
+JSAtom JS_GetModuleExportName(JSContext *ctx, JSModuleDef *m, int idx);
+JSValue JS_GetModuleExportValue(JSContext *ctx, JSModuleDef *m, int idx);
 
 #undef js_unlikely
 #undef js_force_inline
